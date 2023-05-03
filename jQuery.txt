@@ -1,0 +1,92 @@
+-------What is JQuery?
+ANS - 
+
+JQuery is a popular JavaScript library that simplifies the process of writing JavaScript code by providing a set of pre-written functions that can be used to manipulate the Document Object Model (DOM) and create dynamic,
+ interactive web pages. JQuery provides a range of functions to help with tasks such as event handling, animation, and AJAX requests. It is designed to make it easier to navigate and manipulate
+ HTML documents, handle events, create animations, and manage communication with the server using AJAX. JQuery is widely used by web developers and is compatible with a variety of browsers.
+
+------How to Apply CSS Using JQuery, How to Add Class and Remove Class in JQuery,
+
+To apply CSS using jQuery, you can use the `css()` method. This method allows you to change the value of a CSS property for one or more elements on a webpage.
+ Here's an example that changes the background color of an HTML element with the ID "example" to red using jQuery:
+
+$("#example").css("background-color", "red");
+
+In this example, `#example` is a CSS selector that matches the HTML element with the ID "example", and `css()` is a jQuery
+ method that sets the CSS property `background-color` to the value "red" for that element.
+
+To add a class to an element using jQuery, you can use the `addClass()` method. 
+This method allows you to add one or more CSS classes to one or more elements on a webpage. Here's an example that adds the CSS class "highlight" to an HTML element with the ID "example" using jQuery:
+
+$("#example").addClass("highlight");
+
+In this example, `#example` is a CSS selector that matches the HTML element with the ID "example", 
+and `addClass()` is a jQuery method that adds the CSS class "highlight" to that element.
+
+To remove a class from an element using jQuery, you can use the `removeClass()` method. 
+This method allows you to remove one or more CSS classes from one or more elements on a webpage. Here's an example that removes the CSS class "highlight" from an HTML element with the ID "example" using jQuery:
+
+$("#example").removeClass("highlight");
+
+In this example, `#example` is a CSS selector that matches the HTML element with the ID "example", and `removeClass()` is a jQuery method that 
+removes the CSS class "highlight" from that element.
+
+-------how to create slider with animation
+
+Creating a slider with animation using jQuery involves a few steps:
+
+1. HTML Structure: First, create the HTML structure for your slider. This will typically involve a container element with a fixed width and height, and several slide elements inside it. Each slide should be positioned absolutely and should have a width and height that matches the container. Here's an example of what the HTML might look like:
+
+```
+<div class="slider">
+  <div class="slide active">Slide 1</div>
+  <div class="slide">Slide 2</div>
+  <div class="slide">Slide 3</div>
+</div>
+```
+
+2. CSS Styling: Next, style your slider with CSS. This will involve setting the width and height of the container, positioning the slides absolutely, and hiding all slides except for the first one. Here's an example of what the CSS might look like:
+
+```
+.slider {
+  width: 600px;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.active {
+  display: block;
+}
+```
+
+3. jQuery Script: Finally, use jQuery to create the animation for your slider. This will typically involve setting a timer to switch between slides, and using jQuery's `fadeIn()` and `fadeOut()` methods to create the animation. Here's an example of what the jQuery script might look like:
+
+```
+$(document).ready(function() {
+  setInterval(function() {
+    var activeSlide = $(".slider .active");
+    var nextSlide = activeSlide.next();
+
+    if (nextSlide.length === 0) {
+      nextSlide = $(".slider .slide").first();
+    }
+
+    activeSlide.fadeOut(1000).removeClass("active");
+    nextSlide.fadeIn(1000).addClass("active");
+  }, 5000);
+});
+```
+
+In this example, the `setInterval()` function is used to set a timer that switches between slides every 5 seconds. The `active` class is used to indicate the current slide, and the `fadeOut()` and `fadeIn()` methods are used to create the animation. 
+
+Overall, creating a slider with animation using jQuery involves creating the HTML structure, styling it with CSS, and using jQuery to create the animation by changing the position of the slides.
